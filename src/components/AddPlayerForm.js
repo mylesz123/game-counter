@@ -18,6 +18,7 @@ const AddPlayerForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addNewPlayer(value);
+        setValue('');
     }
 
     return(

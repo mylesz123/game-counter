@@ -8,22 +8,22 @@ function App () {
     {
       contestants: [
         {
-          name: "Guil",
+          name: "Myles",
           score: 0,
           id: 1
         },
         {
-          name: "Treasure",
+          name: "Sidni",
           score: 0,
           id: 2
         },
         {
-          name: "Ashley",
+          name: "Tyler",
           score: 0,
           id: 3
         },
         {
-          name: "James",
+          name: "Kels",
           score: 0,
           id: 4
         }
@@ -36,15 +36,17 @@ function App () {
   let handleAddNewPlayer = (name) => {
     // console.log(...players.contestants);
 
-    setPlayers({ 
-      contestants: [
-        ...players.contestants,
-        {
-          name,
-          score: 0,
-          id: lastPlayerId += 1,
-        }
-      ]
+    setPlayers( prevState => { 
+      return {
+          contestants: [
+          ...prevState.contestants,
+          {
+            name,
+            score: 0,
+            id: lastPlayerId += 1,
+          }
+        ]
+      }
     });
 
   }
