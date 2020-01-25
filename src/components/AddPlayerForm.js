@@ -18,7 +18,6 @@ const AddPlayerForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addNewPlayer(value);
-        console.log(value);
     }
 
     return(
@@ -31,7 +30,6 @@ const AddPlayerForm = (props) => {
 
             <input
                 type="submit"
-                onClick={addNewPlayer}
                 value="Add Player"/>
         </form>
     );

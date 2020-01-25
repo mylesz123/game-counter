@@ -31,10 +31,10 @@ function App () {
     }
   );
 
-  let lastPlayerId = Number(players.contestants.length);
+  let lastPlayerId = players.contestants.length;
 
-  let handleAddNewPlayer = (index, name) => {
-    console.log(...players.contestants);
+  let handleAddNewPlayer = (name) => {
+    // console.log(...players.contestants);
 
     setPlayers({ 
       contestants: [
