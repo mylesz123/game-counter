@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Header } from './Header';
 import { Player } from './Player';
+import { AddPlayerForm } from './AddPlayerForm';
 
 function App () {
   let [players, setPlayers] = useState(
     {
-      players: [
+      contestants: [
         {
           name: "Guil",
           score: 0,
@@ -30,16 +31,30 @@ function App () {
     }
   );
 
+  let lastPlayerId = Number(players.contestants.length);
+
+  let handleAddNewPlayer = (index, name) => {
+    console.log(...players.contestants);
+
+    setPlayers({ 
+      contestants: [
+        ...players.contestants,
+        {
+          name,
+          score: 0,
+          id: lastPlayerId += 1,
+        }
+      ]
+    });
+
+  }
+
   let handleScoreChange = (index, change) => {
     setPlayers(prevState => {
       // New 'players' array – a copy of the previous `players` state
-      const updatedPlayers = [...prevState.players];
+      const updatedPlayers = [...prevState.contestants];
       // A copy of the player object we're targeting
       const updatedPlayer = { ...updatedPlayers[index] };
-
-      console.log({...updatedPlayers[index]});
-      // console.log(updatedPlayer);
-
       // Update the target player's score
       updatedPlayer.score += change;
       // Update the 'players' array with the target player's latest score
@@ -47,7 +62,7 @@ function App () {
 
       // Update the `players` state without mutating the original state
       return {
-        players: updatedPlayers
+        contestants: updatedPlayers
       };
     })
   }
@@ -55,7 +70,7 @@ function App () {
   function handleRemovePlayer (id) {
     setPlayers(prevState => {
       return {
-        players: prevState.players.filter(p => p.id !== id),
+        contestants: prevState.contestants.filter(p => p.id !== id),
       };
     });
   }
@@ -64,11 +79,11 @@ function App () {
     <div className="scoreboard">
       <Header
         title="Scoreboard"
-        totalPlayers={players.players.length}
+        players={players.contestants}
       />
 
       {/* Players list */}
-      {players.players.map((player, index) =>
+      {players.contestants.map((player, index) =>
         <Player
           name={player.name}
           score={player.score}
@@ -79,6 +94,11 @@ function App () {
           removePlayer={handleRemovePlayer}
         />
       )} 
+
+      <AddPlayerForm 
+        addNewPlayer={handleAddNewPlayer}
+      />
+
     </div>
   );
 }
