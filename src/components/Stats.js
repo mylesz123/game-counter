@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Stats = (props) => {
+export default function Stats(props) {
     let {players} = props;
     let totalPoints = players.reduce( (totalScore, player) => {
         return totalScore + player.score
@@ -21,5 +21,3 @@ const Stats = (props) => {
         </table>
     );
 }
-
-export { Stats };

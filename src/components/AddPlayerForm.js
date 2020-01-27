@@ -6,7 +6,7 @@ import React, { useState } from 'react';
  * listens to change for input when value is updated
  * creates event handler to update value state
  */
-const AddPlayerForm = (props) => {
+export default function AddPlayerForm(props) {
     let { addNewPlayer } = props;
 
     let [value, setValue] = useState('');
@@ -35,5 +35,3 @@ const AddPlayerForm = (props) => {
         </form>
     );
 }
-
-export { AddPlayerForm };

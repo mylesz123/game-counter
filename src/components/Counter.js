@@ -1,6 +1,6 @@
 import React from "react";
 
-const Counter = (props) => {
+export default function Counter(props) {
 
     let index = props.index;
     return (
@@ -12,5 +12,3 @@ const Counter = (props) => {
     );
 
 }
-
-export { Counter }

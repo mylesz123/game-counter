@@ -1,7 +1,7 @@
 import React from "react";
-import { Counter } from './Counter';
+import Counter from './Counter';
 
-function Player(props) {
+export default function Player(props) {
     let { removePlayer, id, score, index, changeScore, name } = props;
     return (
         <div className="player">
@@ -18,5 +18,3 @@ function Player(props) {
         </div>
     );
 }
-
-export { Player }

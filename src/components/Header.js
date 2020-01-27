@@ -1,7 +1,8 @@
 import React from "react";
-import { Stats } from './Stats';
+import Stats from './Stats';
+import StopWatch from './StopWatch';
 
-function Header (props) {
+export default function Header (props) {
     let { players } = props;
 
     return (
@@ -11,8 +12,8 @@ function Header (props) {
                 players={players}
             />
             <h1>{props.title}</h1>
+
+            <StopWatch />
         </header>
     );
 }
-
-export { Header }

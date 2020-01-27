@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Header } from './Header';
-import { Player } from './Player';
-import { AddPlayerForm } from './AddPlayerForm';
+import Header from './Header';
+import Player from './Player';
+import AddPlayerForm from './AddPlayerForm';
 
-function App () {
+export default function App () {
   let [players, setPlayers] = useState(
     {
       contestants: [
@@ -104,5 +104,3 @@ function App () {
     </div>
   );
 }
-
-export { App };
