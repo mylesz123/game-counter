@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * controlled component
@@ -35,3 +36,7 @@ export default function AddPlayerForm(props) {
         </form>
     );
 }
+
+AddPlayerForm.propTypes = {
+    addNewPlayer: PropTypes.func,
+};

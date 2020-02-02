@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Stats(props) {
     let {players} = props;
@@ -21,3 +22,8 @@ export default function Stats(props) {
         </table>
     );
 }
+
+Stats.propTypes = {
+    className: PropTypes.string,
+    players: PropTypes.arrayOf(PropTypes.object),
+};
