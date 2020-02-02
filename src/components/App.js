@@ -34,8 +34,6 @@ export default function App () {
   let lastPlayerId = players.contestants.length;
 
   let handleAddNewPlayer = (name) => {
-    // console.log(...players.contestants);
-
     setPlayers( prevState => { 
       return {
           contestants: [
@@ -69,6 +67,10 @@ export default function App () {
     })
   }
 
+  let getHighScore = players.contestants.reduce((previousLargestNumber, currentLargestNumber) => {
+    return (currentLargestNumber.score > previousLargestNumber) ? currentLargestNumber.score : previousLargestNumber;
+  }, 0);
+
   function handleRemovePlayer (id) {
     setPlayers(prevState => {
       return {
@@ -90,6 +92,7 @@ export default function App () {
           name={player.name}
           score={player.score}
           changeScore={handleScoreChange}
+          highScore={getHighScore}
           index={index}
           id={player.id}
           key={player.id.toString()}
